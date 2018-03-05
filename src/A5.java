@@ -12,7 +12,8 @@ public class A5 {
 	
 	public static void muenze(int restgeld) {
 		
-		int[] muenzArray = new int[6];
+		int[] muenzArray = new int[8];
+		int[] muenzTypen = {200,100,50,20,10,5,2,1};
 		
 		muenzArray[0] = restgeld/50;
 		muenzArray[1] = (restgeld%50)/20;
