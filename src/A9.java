@@ -2,11 +2,10 @@
 public class A9 {
 
 	static String pw = "";
-	static int state = 0;
-	final static int lower = 1;
-	final static int capital = 10;
-	final static int digit = 100;
-	final static int special = 1000;
+	static int lower = 0;
+	static int capital = 0;
+	static int digit = 0;
+	static int special = 0;
 
 	public static void main(String[] args) {
 
@@ -15,24 +14,23 @@ public class A9 {
 			
 			char candidate = (char) ( (Math.random() * 94) + 33 );
 			
-			System.out.println(state+" "+candidate+" "+pw);
+			System.out.println("// "+lower+" "+capital+" "+digit+" "+special+" "+candidate+" "+pw);
 			
-			
-			
-			if ( state <= 1000 && !Character.isLetterOrDigit(candidate) ) {
-				state+=special;
+
+			if ( special < 1 && !Character.isLetterOrDigit(candidate) ) {
+				special++;
 				pw+=candidate;
 			} 
-			else if( (state%1000)/100 < 2 && Character.isDigit(candidate)){
-				state+=digit;
+			else if( digit < 2 && Character.isDigit(candidate)){
+				digit++;
 				pw+=candidate;
 			}
-			else if( ((state%1000)%100)/10+((state%1000)%100)%10 < 5 && Character.isLowerCase(candidate)){
-				state+=lower;
+			else if( lower < 4 && capital+lower < 5 && Character.isLowerCase(candidate)){
+				lower++;
 				pw+=candidate;
 			}
-			else if( ((state%1000)%100)%10 < 5 && Character.isUpperCase(candidate)){
-				state+=capital;
+			else if( capital+lower < 5 &&  Character.isUpperCase(candidate)){
+				capital++;
 				pw+=candidate;
 			}
 
