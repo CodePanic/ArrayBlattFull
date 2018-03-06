@@ -1,10 +1,12 @@
 import java.util.Arrays;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 public class A6 {
 
 	public static void main(String[] args) {
 		
-		int[] numbers = check(createNewSet());
+		int[] numbers = createNewSet();
 		
 		System.out.println(Arrays.toString(numbers));
 
@@ -19,7 +21,7 @@ public class A6 {
 			
 		}
 		
-		return rand;
+		return check(rand);
 	}
 	
 	public static int[] check(int[] array) {
@@ -37,12 +39,15 @@ public class A6 {
 		}
 		
 		if (result) {
+			ArrayUtils.contains(array, 11);
 			return array;
 		}
 		else {
-			System.out.println("Oh no DUPLICATES "+Arrays.toString(array));
+			System.out.println("Oh no! DUPLICATES! "+Arrays.toString(array)+" retry...");
 			return createNewSet();
 		}
+		
+		
 		
 	}
 	
